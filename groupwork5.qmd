@@ -1,0 +1,52 @@
+---
+title: "Seed Dispersal"
+subtitle: "A behavioral movement patterns"
+author: "Marius King"
+format:
+  revealjs: 
+    theme: moon
+bibliography: bibliography.bib
+---
+
+## Seed Dispersal
+
+Birds like the **Spotted Nutcracker (*Nucifraga caryocatactes*)** play key roles in forest regeneration by dispersing seeds. Movement data allows conclusions to be inferred about harvesting and caching sites. Understanding these patterns helps in conservation and forest management.
+
+------------------------------------------------------------------------
+
+## Data Collection and Preprocessing
+
+
+::: r-fit-text
+**Data Collection:**
+
+-   GPS tracking devices attached to birds log positional data over time.
+-   Sampling intervals vary (e.g., every 15 min to 1 hour).
+
+**Preprocessing:**
+
+-   Filtering erroneous points (e.g., outliers due to GPS errors).
+-   Interpolating missing data to ensure consistency.
+-   Converting timestamps to movement trajectories.
+:::
+
+------------------------------------------------------------------------
+
+## Analysis
+
+::: r-fit-text
+according to @SorensenEtAl2022 and @GrafEtAl2024
+
+-   Identify frequently revisited sites, time spent within these areas (visit duration), and time since the last visit to the area using the R package `recurse`
+-   To isolate the frequently revisited sites, set a threshold of revisits. To do so, plot the density of revisits, and then select the minimum density as the threshold between the rarely revisited and the frequently revisited sites.
+-   Perform a spatial fuzzy cluster analysis to group frequently revisited sites into two clusters and then compared the visit durations between clusters.
+-   To measure the size of revisited sites, extract the 95% convex polygons of each cluster using the `adehabitatHR` package
+-   To obtain information on the habitat type (foraging or caching) of frequently revisited sites use environmental contex data like forest maps or field observations
+:::
+
+------------------------------------------------------------------------
+
+## References
+
+::: {#refs}
+:::
